@@ -1,58 +1,145 @@
-# Python PyPI Package Template
+# Templafy API Client
 
-https://api.templafy.com/
+A Python client for the Templafy API using openapi-python-client for type-safe, modern Python API access.
 
-A minimal template for creating Python packages with a simple "Hello World" example.
+## Overview
+
+This package provides a Python client for the Templafy API, allowing you to programmatically access templates, documents, images, and other assets in your Templafy workspace.
+
+## Installation
+
+```bash
+pip install -e .
+```
 
 ## Quick Start
 
-### 1. Use this template
+### Basic Usage
 
-Click the "Use this template" button on GitHub to create your own repository:
+```python
+from templafy import AuthenticatedClient
+from templafy.api import spaces, documents
 
-### 2. Install dependencies
+# Initialize client
+client = AuthenticatedClient(
+    base_url="https://your-tenant.api.templafy.com/v3",
+    token="your-api-token"
+)
 
-```bash
-# Run the development setup script
-.\tasks\dev_sync.ps1
+# Use with context manager (recommended)
+with client as client:
+    # List all spaces
+    all_spaces = spaces.get_spaces(client=client)
+    print(f"Found {len(all_spaces)} spaces")
+    
+    # List documents  
+    all_documents = documents.get_documents(client=client)
+    print(f"Found {len(all_documents)} documents")
 ```
 
-### 3. Customize the package
+### Available API Endpoints
 
-#### Rename the package
+The client provides access to the following Templafy API resources:
 
-1. Rename directories:
-   ```bash
-   mv src/whitelabel src/YOUR_PACKAGE_NAME
-   mv tests/whitelabel tests/YOUR_PACKAGE_NAME
-   ```
+- **Spaces** - Workspace/tenant management
+- **Libraries** - Library management across spaces  
+- **Documents** - Document template operations and generation
+- **Folders** - Folder structure management
+- **Images** - Image asset management
+- **Slides** - PowerPoint slide management
+- **Spreadsheets** - Excel template operations
+- **Links** - Link asset management
 
-2. Update `pyproject.toml`:
-   - Change `name = "whitelabel"` to `name = "YOUR_PACKAGE_NAME"`
-   - Update author information
-   - Update repository URLs
+### Models
 
-3. Update import statements in your code from `whitelabel` to `YOUR_PACKAGE_NAME`
+The client includes type-safe models for all API resources:
 
+```python
+from templafy import Space, Document, Library, Image
 
-## Next Steps
+# Models are automatically used when calling API methods
+spaces = spaces.get_spaces(client=client)
+for space in spaces:
+    print(f"Space: {space.name} (ID: {space.id})")
+```
 
-1. Replace the hello_world function with your own code
-2. Add your functions to `src/YOUR_PACKAGE_NAME/functions/`
-3. Write tests in `tests/YOUR_PACKAGE_NAME/`
-4. Update `pyproject.toml` with your package details
+## API Structure
 
-## CI/CD Configuration
+```
+templafy/
+├── client.py           # Base Client and AuthenticatedClient classes
+├── models/             # Type-safe models for all schemas
+│   ├── space.py        # Space-related models
+│   ├── document.py     # Document-related models
+│   ├── library.py      # Library-related models
+│   └── ...
+├── api/                # API endpoint modules by resource
+│   ├── spaces.py       # Spaces API endpoints
+│   ├── documents.py    # Documents API endpoints
+│   ├── libraries.py    # Libraries API endpoints
+│   └── ...
+├── types.py            # Common type definitions
+└── errors.py           # Error classes and exceptions
+```
 
-### SonarQube Setup
+## Error Handling
 
-To enable SonarQube analysis in your CI/CD pipeline, set the following variables:
+The client provides specific error classes for different types of API errors:
 
-- `SONAR_TOKEN`: Set as a **secret** in your CI/CD platform (authentication token for SonarQube)
-- `SONAR_PROJECT_KEY`: Set as an **environment variable** in your CI/CD pipeline (unique key for your project, e.g., `your-org_your-repo`)
+```python
+from templafy.errors import (
+    AuthenticationError,
+    AuthorizationError, 
+    NotFoundError,
+    ValidationError,
+    RateLimitError,
+    ServerError
+)
 
-`SONAR_HOST_URL` is typically configured at the organization level.
+try:
+    documents = documents.get_documents(client=client)
+except AuthenticationError:
+    print("API token is invalid")
+except AuthorizationError:
+    print("Insufficient permissions")
+except NotFoundError:
+    print("Resource not found")
+except RateLimitError:
+    print("Rate limit exceeded")
+```
+
+## Development
+
+### Dependencies
+
+This project requires Python 3.12+ and the following dependencies:
+
+- `httpx` - HTTP client
+- `pydantic` - Data validation and settings management
+- `typing-extensions` - Additional typing features
+
+### Testing
+
+```bash
+python -m pytest tests/ -v
+```
+
+### Code Quality
+
+The project uses `ruff` for linting and formatting:
+
+```bash
+ruff check src/templafy --fix
+ruff format src/templafy
+```
+
+## Contributing
+
+1. Install development dependencies
+2. Make your changes
+3. Run tests and linting
+4. Submit a pull request
 
 ## License
 
-MIT License
+MIT License - see LICENSE file for details.
