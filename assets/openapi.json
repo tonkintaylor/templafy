@@ -298,7 +298,7 @@
                   },
                   "Name": {
                     "type": "string",
-                    "description": "The name is inferred from the file name by default. It can be overriden by providing a different value with this field"
+                    "description": "The name is inferred from the file name by default. It can be overridden by providing a different value with this field"
                   },
                   "Description": {
                     "type": "string",
@@ -810,7 +810,7 @@
                   },
                   "Name": {
                     "type": "string",
-                    "description": "The name is inferred from the file name by default. It can be overriden by providing a different value with this field"
+                    "description": "The name is inferred from the file name by default. It can be overridden by providing a different value with this field"
                   },
                   "Description": {
                     "type": "string",
@@ -1776,7 +1776,7 @@
                   },
                   "Name": {
                     "type": "string",
-                    "description": "The name is inferred from the file name by default. It can be overriden by providing a different value with this field"
+                    "description": "The name is inferred from the file name by default. It can be overridden by providing a different value with this field"
                   },
                   "Description": {
                     "type": "string",
@@ -2838,7 +2838,7 @@
                   },
                   "Name": {
                     "type": "string",
-                    "description": "The name is inferred from the file name by default. It can be overriden by providing a different value with this field"
+                    "description": "The name is inferred from the file name by default. It can be overridden by providing a different value with this field"
                   },
                   "Description": {
                     "type": "string",
@@ -3439,7 +3439,7 @@
                   },
                   "Name": {
                     "type": "string",
-                    "description": "The name is inferred from the file name by default. It can be overriden by providing a different value with this field"
+                    "description": "The name is inferred from the file name by default. It can be overridden by providing a different value with this field"
                   },
                   "Description": {
                     "type": "string",
@@ -3973,7 +3973,7 @@
                   },
                   "Name": {
                     "type": "string",
-                    "description": "The name is inferred from the file name by default. It can be overriden by providing a different value with this field"
+                    "description": "The name is inferred from the file name by default. It can be overridden by providing a different value with this field"
                   },
                   "Description": {
                     "type": "string",
@@ -4507,7 +4507,7 @@
                   },
                   "Name": {
                     "type": "string",
-                    "description": "The name is inferred from the file name by default. It can be overriden by providing a different value with this field"
+                    "description": "The name is inferred from the file name by default. It can be overridden by providing a different value with this field"
                   },
                   "Description": {
                     "type": "string",
@@ -5119,7 +5119,7 @@
                   },
                   "Name": {
                     "type": "string",
-                    "description": "The name is inferred from the file name by default. It can be overriden by providing a different value with this field"
+                    "description": "The name is inferred from the file name by default. It can be overridden by providing a different value with this field"
                   },
                   "Description": {
                     "type": "string",
@@ -5713,7 +5713,7 @@
                   },
                   "Name": {
                     "type": "string",
-                    "description": "The name is inferred from the file name by default. It can be overriden by providing a different value with this field"
+                    "description": "The name is inferred from the file name by default. It can be overridden by providing a different value with this field"
                   },
                   "Description": {
                     "type": "string",

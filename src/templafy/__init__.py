@@ -4,6 +4,22 @@ from typing import Any
 
 __version__ = "0.1.0"
 
+# Type stubs for lazy-loaded items to satisfy pyright
+# These will be overridden by __getattr__ at runtime
+if False:  # pragma: no cover
+    from .client import AuthenticatedClient, Client
+    from .errors import (
+        AuthenticationError,
+        AuthorizationError,
+        NotFoundError,
+        RateLimitError,
+        ServerError,
+        TemplafyError,
+        UnexpectedStatus,
+        ValidationError,
+    )
+    from . import api
+
 # For now, defer imports that have external dependencies to avoid issues
 # during development where dependencies may not be installed
 def __getattr__(name: str) -> Any:  # noqa: PLC0415
