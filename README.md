@@ -1,5 +1,7 @@
 # Python PyPI Package Template
 
+https://api.templafy.com/
+
 A minimal template for creating Python packages with a simple "Hello World" example.
 
 ## Quick Start
