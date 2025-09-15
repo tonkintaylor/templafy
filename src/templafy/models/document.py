@@ -1,7 +1,7 @@
 """Document model for the Templafy API."""
 
 from typing import Optional, List
-from pydantic import BaseModel
+from pydantic import BaseModel, ConfigDict
 
 
 class Document(BaseModel):
@@ -19,7 +19,4 @@ class Document(BaseModel):
     size: Optional[int] = None
     download_url: Optional[str] = None
 
-    class Config:
-        """Pydantic configuration."""
-        
-        extra = "allow"
+    model_config = ConfigDict(extra="allow")

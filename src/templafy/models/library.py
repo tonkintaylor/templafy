@@ -1,7 +1,7 @@
 """Library model for the Templafy API."""
 
 from typing import Optional
-from pydantic import BaseModel
+from pydantic import BaseModel, ConfigDict
 
 
 class Library(BaseModel):
@@ -15,7 +15,4 @@ class Library(BaseModel):
     created_at: Optional[str] = None
     updated_at: Optional[str] = None
 
-    class Config:
-        """Pydantic configuration."""
-        
-        extra = "allow"
+    model_config = ConfigDict(extra="allow")
