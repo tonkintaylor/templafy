@@ -1,6 +1,6 @@
 """Link model for the Templafy API."""
 
-from typing import Optional, List
+
 from pydantic import BaseModel, ConfigDict
 
 
@@ -9,12 +9,12 @@ class Link(BaseModel):
 
     id: str
     name: str
-    description: Optional[str] = None
+    description: str | None = None
     url: str
-    library_id: Optional[str] = None
-    folder_id: Optional[str] = None
-    tags: Optional[List[str]] = None
-    created_at: Optional[str] = None
-    updated_at: Optional[str] = None
+    library_id: str | None = None
+    folder_id: str | None = None
+    tags: list[str] | None = None
+    created_at: str | None = None
+    updated_at: str | None = None
 
     model_config = ConfigDict(extra="allow")

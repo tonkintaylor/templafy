@@ -1,6 +1,5 @@
 """Base client classes for the Templafy API."""
 
-from typing import Any, Dict, Optional, Union
 import httpx
 
 
@@ -11,7 +10,7 @@ class Client:
         self,
         base_url: str,
         *,
-        httpx_client: Optional[httpx.Client] = None,
+        httpx_client: httpx.Client | None = None,
         timeout: float = 10.0,
         verify_ssl: bool = True,
     ) -> None:
@@ -35,7 +34,7 @@ class Client:
         """Enter context manager."""
         return self
 
-    def __exit__(self, *args: Any) -> None:
+    def __exit__(self, *args: object) -> None:
         """Exit context manager."""
         self._client.close()
 
@@ -52,7 +51,7 @@ class AuthenticatedClient(Client):
         base_url: str,
         token: str,
         *,
-        httpx_client: Optional[httpx.Client] = None,
+        httpx_client: httpx.Client | None = None,
         timeout: float = 10.0,
         verify_ssl: bool = True,
     ) -> None:
@@ -79,7 +78,7 @@ class AuthenticatedClient(Client):
                 headers={"Authorization": f"Bearer {token}"},
             )
 
-    def get_headers(self) -> Dict[str, str]:
+    def get_headers(self) -> dict[str, str]:
         """Get the headers for authenticated requests."""
         return {
             "Authorization": f"Bearer {self.token}",

@@ -1,9 +1,8 @@
 from pathlib import Path
 
 import pytest
-from unittest.mock import Mock, patch
-from templafy import Client, AuthenticatedClient
-from templafy.models import Space, Document, Library
+
+from templafy import AuthenticatedClient, Client
 
 collect_ignore_glob = ["assets/**"]
 pytest_plugins = []
@@ -50,7 +49,7 @@ def mock_space_data():
             "is_active": True,
         },
         {
-            "id": "space2", 
+            "id": "space2",
             "name": "Test Space 2",
             "description": "Another test space",
             "is_active": True,
@@ -71,7 +70,7 @@ def mock_document_data():
         },
         {
             "id": "doc2",
-            "name": "Test Document 2", 
+            "name": "Test Document 2",
             "description": "Another test document",
             "template_type": "powerpoint",
             "library_id": "lib1",

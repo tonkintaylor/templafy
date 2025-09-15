@@ -1,6 +1,6 @@
 """Tests for the Templafy API client."""
 
-from templafy import Client, AuthenticatedClient
+from templafy import AuthenticatedClient, Client
 
 
 def test_client_initialization(base_url):

@@ -11,9 +11,9 @@ def test_space_model_creation():
         "description": "A test space",
         "is_active": True,
     }
-    
+
     space = Space(**space_data)
-    
+
     assert space.id == "space1"
     assert space.name == "Test Space"
     assert space.description == "A test space"
@@ -26,9 +26,9 @@ def test_space_model_with_minimal_data():
         "id": "space2",
         "name": "Minimal Space",
     }
-    
+
     space = Space(**space_data)
-    
+
     assert space.id == "space2"
     assert space.name == "Minimal Space"
     assert space.description is None

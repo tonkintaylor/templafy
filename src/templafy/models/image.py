@@ -1,6 +1,6 @@
 """Image model for the Templafy API."""
 
-from typing import Optional, List
+
 from pydantic import BaseModel, ConfigDict
 
 
@@ -9,17 +9,17 @@ class Image(BaseModel):
 
     id: str
     name: str
-    description: Optional[str] = None
-    library_id: Optional[str] = None
-    folder_id: Optional[str] = None
-    tags: Optional[List[str]] = None
-    file_size: Optional[int] = None
-    width: Optional[int] = None
-    height: Optional[int] = None
-    format: Optional[str] = None
-    download_url: Optional[str] = None
-    thumbnail_url: Optional[str] = None
-    created_at: Optional[str] = None
-    updated_at: Optional[str] = None
+    description: str | None = None
+    library_id: str | None = None
+    folder_id: str | None = None
+    tags: list[str] | None = None
+    file_size: int | None = None
+    width: int | None = None
+    height: int | None = None
+    format: str | None = None
+    download_url: str | None = None
+    thumbnail_url: str | None = None
+    created_at: str | None = None
+    updated_at: str | None = None
 
     model_config = ConfigDict(extra="allow")

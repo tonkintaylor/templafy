@@ -1,19 +1,18 @@
 """Documents API endpoints for the Templafy API."""
 
-from typing import List, Optional, Union
-import httpx
 
-from ..client import Client, AuthenticatedClient
-from ..models.document import Document
+
+from ..client import AuthenticatedClient, Client
 from ..errors import get_error_from_response
+from ..models.document import Document
 
 
 def get_documents(
     *,
-    client: Union[Client, AuthenticatedClient],
-    library_id: Optional[str] = None,
-    folder_id: Optional[str] = None,
-) -> List[Document]:
+    client: Client | AuthenticatedClient,
+    library_id: str | None = None,
+    folder_id: str | None = None,
+) -> list[Document]:
     """List documents.
     
     Args:
@@ -28,19 +27,19 @@ def get_documents(
         TemplafyError: If the API request fails
     """
     url = f"{client.base_url}/documents"
-    
+
     params = {}
     if library_id:
         params["libraryId"] = library_id
     if folder_id:
         params["folderId"] = folder_id
-    
+
     headers = {}
     if isinstance(client, AuthenticatedClient):
         headers = client.get_headers()
-    
+
     response = client._client.get(url, headers=headers, params=params)
-    
+
     if response.status_code == 200:
         data = response.json()
         return [Document(**item) for item in data]
@@ -51,7 +50,7 @@ def get_documents(
 
 def get_document(
     *,
-    client: Union[Client, AuthenticatedClient],
+    client: Client | AuthenticatedClient,
     document_id: str,
 ) -> Document:
     """Get a specific document.
@@ -67,13 +66,13 @@ def get_document(
         TemplafyError: If the API request fails
     """
     url = f"{client.base_url}/documents/{document_id}"
-    
+
     headers = {}
     if isinstance(client, AuthenticatedClient):
         headers = client.get_headers()
-    
+
     response = client._client.get(url, headers=headers)
-    
+
     if response.status_code == 200:
         data = response.json()
         return Document(**data)

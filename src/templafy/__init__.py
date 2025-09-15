@@ -1,27 +1,34 @@
 """A Python client for the Templafy API."""
 
+from typing import Any
+
 __version__ = "0.1.0"
 
 # For now, defer imports that have external dependencies to avoid issues
 # during development where dependencies may not be installed
-def __getattr__(name: str):
+def __getattr__(name: str) -> Any:  # noqa: PLC0415
     """Lazy imports for components with external dependencies."""
     if name == "Client":
-        from .client import Client
+        from .client import Client  # noqa: PLC0415
         return Client
     elif name == "AuthenticatedClient":
-        from .client import AuthenticatedClient
+        from .client import AuthenticatedClient  # noqa: PLC0415
         return AuthenticatedClient
     elif name == "api":
-        from . import api
+        from . import api  # noqa: PLC0415
         return api
-    elif name in ["TemplafyError", "AuthenticationError", "AuthorizationError", 
-                  "NotFoundError", "ValidationError", "RateLimitError", 
+    elif name in ["TemplafyError", "AuthenticationError", "AuthorizationError",
+                  "NotFoundError", "ValidationError", "RateLimitError",
                   "ServerError", "UnexpectedStatus"]:
-        from .errors import (
-            TemplafyError, AuthenticationError, AuthorizationError,
-            NotFoundError, ValidationError, RateLimitError,
-            ServerError, UnexpectedStatus
+        from .errors import (  # noqa: PLC0415
+            AuthenticationError,  # noqa: F401
+            AuthorizationError,  # noqa: F401
+            NotFoundError,  # noqa: F401
+            RateLimitError,  # noqa: F401
+            ServerError,  # noqa: F401
+            TemplafyError,  # noqa: F401
+            UnexpectedStatus,  # noqa: F401
+            ValidationError,  # noqa: F401
         )
         return locals()[name]
     else:
@@ -29,15 +36,15 @@ def __getattr__(name: str):
         raise AttributeError(error_message)
 
 # Export models (these have no external dependencies)
-from .models import (
-    Space,
+from .models import (  # noqa: E402
     Document,
-    Library,
     Folder,
     Image,
-    Slide,
-    Spreadsheet,
+    Library,
     Link,
+    Slide,
+    Space,
+    Spreadsheet,
 )
 
 __all__ = [

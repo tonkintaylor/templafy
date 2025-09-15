@@ -1,16 +1,15 @@
 """Folders API endpoints for the Templafy API."""
 
-from typing import List, Union
 
-from ..client import Client, AuthenticatedClient
-from ..models.folder import Folder
+from ..client import AuthenticatedClient, Client
 from ..errors import get_error_from_response
+from ..models.folder import Folder
 
 
 def get_folders(
     *,
-    client: Union[Client, AuthenticatedClient],
-) -> List[Folder]:
+    client: Client | AuthenticatedClient,
+) -> list[Folder]:
     """List folders.
     
     Args:
@@ -23,13 +22,13 @@ def get_folders(
         TemplafyError: If the API request fails
     """
     url = f"{client.base_url}/folders"
-    
+
     headers = {}
     if isinstance(client, AuthenticatedClient):
         headers = client.get_headers()
-    
+
     response = client._client.get(url, headers=headers)
-    
+
     if response.status_code == 200:
         data = response.json()
         return [Folder(**item) for item in data]

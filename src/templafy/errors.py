@@ -1,13 +1,12 @@
 """Error classes and exceptions for the Templafy API client."""
 
-from typing import Any, Dict, Optional
 import httpx
 
 
 class TemplafyError(Exception):
     """Base exception for Templafy API errors."""
 
-    def __init__(self, message: str, response: Optional[httpx.Response] = None) -> None:
+    def __init__(self, message: str, response: httpx.Response | None = None) -> None:
         """Initialize the error.
         
         Args:
@@ -22,37 +21,31 @@ class TemplafyError(Exception):
 class AuthenticationError(TemplafyError):
     """Authentication failed."""
 
-    pass
 
 
 class AuthorizationError(TemplafyError):
     """Authorization failed - insufficient permissions."""
 
-    pass
 
 
 class NotFoundError(TemplafyError):
     """Resource not found."""
 
-    pass
 
 
 class ValidationError(TemplafyError):
     """Request validation failed."""
 
-    pass
 
 
 class RateLimitError(TemplafyError):
     """Rate limit exceeded."""
 
-    pass
 
 
 class ServerError(TemplafyError):
     """Server error (5xx status codes)."""
 
-    pass
 
 
 class UnexpectedStatus(TemplafyError):
@@ -62,7 +55,7 @@ class UnexpectedStatus(TemplafyError):
         self,
         status_code: int,
         content: bytes,
-        response: Optional[httpx.Response] = None,
+        response: httpx.Response | None = None,
     ) -> None:
         """Initialize unexpected status error.
         
@@ -88,7 +81,7 @@ def get_error_from_response(response: httpx.Response) -> TemplafyError:
     """
     status_code = response.status_code
     content = response.content
-    
+
     if status_code == 401:
         return AuthenticationError("Authentication failed", response)
     elif status_code == 403:

@@ -1,6 +1,6 @@
 """Folder model for the Templafy API."""
 
-from typing import Optional
+
 from pydantic import BaseModel, ConfigDict
 
 
@@ -9,9 +9,9 @@ class Folder(BaseModel):
 
     id: str
     name: str
-    parent_id: Optional[str] = None
-    library_id: Optional[str] = None
-    created_at: Optional[str] = None
-    updated_at: Optional[str] = None
+    parent_id: str | None = None
+    library_id: str | None = None
+    created_at: str | None = None
+    updated_at: str | None = None
 
     model_config = ConfigDict(extra="allow")

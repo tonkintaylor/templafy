@@ -1,16 +1,15 @@
 """Spreadsheets API endpoints for the Templafy API."""
 
-from typing import List, Union
 
-from ..client import Client, AuthenticatedClient
-from ..models.spreadsheet import Spreadsheet
+from ..client import AuthenticatedClient, Client
 from ..errors import get_error_from_response
+from ..models.spreadsheet import Spreadsheet
 
 
 def get_spreadsheets(
     *,
-    client: Union[Client, AuthenticatedClient],
-) -> List[Spreadsheet]:
+    client: Client | AuthenticatedClient,
+) -> list[Spreadsheet]:
     """List spreadsheets.
     
     Args:
@@ -23,13 +22,13 @@ def get_spreadsheets(
         TemplafyError: If the API request fails
     """
     url = f"{client.base_url}/spreadsheets"
-    
+
     headers = {}
     if isinstance(client, AuthenticatedClient):
         headers = client.get_headers()
-    
+
     response = client._client.get(url, headers=headers)
-    
+
     if response.status_code == 200:
         data = response.json()
         return [Spreadsheet(**item) for item in data]

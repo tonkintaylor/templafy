@@ -1,16 +1,15 @@
 """Libraries API endpoints for the Templafy API."""
 
-from typing import List, Union
 
-from ..client import Client, AuthenticatedClient
-from ..models.library import Library
+from ..client import AuthenticatedClient, Client
 from ..errors import get_error_from_response
+from ..models.library import Library
 
 
 def get_libraries(
     *,
-    client: Union[Client, AuthenticatedClient],
-) -> List[Library]:
+    client: Client | AuthenticatedClient,
+) -> list[Library]:
     """List libraries.
     
     Args:
@@ -23,13 +22,13 @@ def get_libraries(
         TemplafyError: If the API request fails
     """
     url = f"{client.base_url}/libraries"
-    
+
     headers = {}
     if isinstance(client, AuthenticatedClient):
         headers = client.get_headers()
-    
+
     response = client._client.get(url, headers=headers)
-    
+
     if response.status_code == 200:
         data = response.json()
         return [Library(**item) for item in data]
