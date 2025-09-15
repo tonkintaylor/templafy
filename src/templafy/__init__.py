@@ -1,5 +1,7 @@
 """A Python client for the Templafy API."""
 
+# Trigger CI/CD to verify fixes
+
 from typing import Any
 
 __version__ = "0.1.0"
