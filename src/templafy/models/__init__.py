@@ -2,7 +2,8 @@
 
 from typing import Any
 
-# For now use simple models without pydantic to avoid dependency issues during development
+# For now use simple models without pydantic to avoid dependency issues
+# during development
 from .space_simple import Space
 
 
@@ -82,6 +83,7 @@ class Link:
         self.name = name
         for key, value in kwargs.items():
             setattr(self, key, value)
+
 
 __all__ = [
     "Document",

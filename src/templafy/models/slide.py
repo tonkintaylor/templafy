@@ -1,6 +1,5 @@
 """Slide model for the Templafy API."""
 
-
 from pydantic import BaseModel, ConfigDict
 
 

@@ -1,10 +1,8 @@
 """Documents API endpoints for the Templafy API."""
 
-
-
-from ..client import AuthenticatedClient, Client
-from ..errors import get_error_from_response
-from ..models.document import Document
+from templafy.client import AuthenticatedClient, Client
+from templafy.errors import get_error_from_response
+from templafy.models.document import Document
 
 
 def get_documents(
@@ -14,15 +12,15 @@ def get_documents(
     folder_id: str | None = None,
 ) -> list[Document]:
     """List documents.
-    
+
     Args:
         client: The API client to use
         library_id: Optional library ID to filter by
         folder_id: Optional folder ID to filter by
-        
+
     Returns:
         List of documents
-        
+
     Raises:
         TemplafyError: If the API request fails
     """
@@ -38,7 +36,7 @@ def get_documents(
     if isinstance(client, AuthenticatedClient):
         headers = client.get_headers()
 
-    response = client._client.get(url, headers=headers, params=params)
+    response = client._client.get(url, headers=headers, params=params)  # noqa: SLF001
 
     if response.status_code == 200:
         data = response.json()
@@ -54,14 +52,14 @@ def get_document(
     document_id: str,
 ) -> Document:
     """Get a specific document.
-    
+
     Args:
         client: The API client to use
         document_id: The ID of the document
-        
+
     Returns:
         The document
-        
+
     Raises:
         TemplafyError: If the API request fails
     """
@@ -71,7 +69,7 @@ def get_document(
     if isinstance(client, AuthenticatedClient):
         headers = client.get_headers()
 
-    response = client._client.get(url, headers=headers)
+    response = client._client.get(url, headers=headers)  # noqa: SLF001
 
     if response.status_code == 200:
         data = response.json()

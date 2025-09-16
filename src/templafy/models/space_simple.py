@@ -3,7 +3,6 @@
 from typing import Any
 
 
-
 class Space:
     """A Templafy space (workspace/tenant)."""
 

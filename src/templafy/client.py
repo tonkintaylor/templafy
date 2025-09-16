@@ -15,7 +15,7 @@ class Client:
         verify_ssl: bool = True,
     ) -> None:
         """Initialize the client.
-        
+
         Args:
             base_url: The base URL for the API
             httpx_client: An optional httpx client to use
@@ -56,7 +56,7 @@ class AuthenticatedClient(Client):
         verify_ssl: bool = True,
     ) -> None:
         """Initialize the authenticated client.
-        
+
         Args:
             base_url: The base URL for the API
             token: The API token for authentication

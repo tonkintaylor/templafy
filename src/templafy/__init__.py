@@ -9,6 +9,7 @@ __version__ = "0.1.0"
 # Type stubs for lazy-loaded items to satisfy pyright
 # These will be overridden by __getattr__ at runtime
 if False:  # pragma: no cover
+    from . import api
     from .client import AuthenticatedClient, Client
     from .errors import (
         AuthenticationError,
@@ -20,24 +21,34 @@ if False:  # pragma: no cover
         UnexpectedStatus,
         ValidationError,
     )
-    from . import api
+
 
 # For now, defer imports that have external dependencies to avoid issues
 # during development where dependencies may not be installed
-def __getattr__(name: str) -> Any:  # noqa: PLC0415
+def __getattr__(name: str) -> Any:
     """Lazy imports for components with external dependencies."""
     if name == "Client":
         from .client import Client  # noqa: PLC0415
+
         return Client
     elif name == "AuthenticatedClient":
         from .client import AuthenticatedClient  # noqa: PLC0415
+
         return AuthenticatedClient
     elif name == "api":
         from . import api  # noqa: PLC0415
+
         return api
-    elif name in ["TemplafyError", "AuthenticationError", "AuthorizationError",
-                  "NotFoundError", "ValidationError", "RateLimitError",
-                  "ServerError", "UnexpectedStatus"]:
+    elif name in [
+        "TemplafyError",
+        "AuthenticationError",
+        "AuthorizationError",
+        "NotFoundError",
+        "ValidationError",
+        "RateLimitError",
+        "ServerError",
+        "UnexpectedStatus",
+    ]:
         from .errors import (  # noqa: PLC0415
             AuthenticationError,  # noqa: F401
             AuthorizationError,  # noqa: F401
@@ -48,10 +59,12 @@ def __getattr__(name: str) -> Any:  # noqa: PLC0415
             UnexpectedStatus,  # noqa: F401
             ValidationError,  # noqa: F401
         )
+
         return locals()[name]
     else:
         error_message = f"module '{__name__}' has no attribute '{name}'"
         raise AttributeError(error_message)
+
 
 # Export models (these have no external dependencies)
 from .models import (  # noqa: E402
@@ -66,27 +79,23 @@ from .models import (  # noqa: E402
 )
 
 __all__ = [
-    # Client classes
-    "Client",
     "AuthenticatedClient",
-    # Models
-    "Space",
-    "Document",
-    "Library",
-    "Folder",
-    "Image",
-    "Slide",
-    "Spreadsheet",
-    "Link",
-    # Errors
-    "TemplafyError",
     "AuthenticationError",
     "AuthorizationError",
+    "Client",
+    "Document",
+    "Folder",
+    "Image",
+    "Library",
+    "Link",
     "NotFoundError",
-    "ValidationError",
     "RateLimitError",
     "ServerError",
+    "Slide",
+    "Space",
+    "Spreadsheet",
+    "TemplafyError",
     "UnexpectedStatus",
-    # API modules
+    "ValidationError",
     "api",
 ]

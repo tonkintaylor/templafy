@@ -8,7 +8,7 @@ class TemplafyError(Exception):
 
     def __init__(self, message: str, response: httpx.Response | None = None) -> None:
         """Initialize the error.
-        
+
         Args:
             message: Error message
             response: HTTP response that caused the error
@@ -22,30 +22,24 @@ class AuthenticationError(TemplafyError):
     """Authentication failed."""
 
 
-
 class AuthorizationError(TemplafyError):
     """Authorization failed - insufficient permissions."""
-
 
 
 class NotFoundError(TemplafyError):
     """Resource not found."""
 
 
-
 class ValidationError(TemplafyError):
     """Request validation failed."""
-
 
 
 class RateLimitError(TemplafyError):
     """Rate limit exceeded."""
 
 
-
 class ServerError(TemplafyError):
     """Server error (5xx status codes)."""
-
 
 
 class UnexpectedStatus(TemplafyError):
@@ -58,7 +52,7 @@ class UnexpectedStatus(TemplafyError):
         response: httpx.Response | None = None,
     ) -> None:
         """Initialize unexpected status error.
-        
+
         Args:
             status_code: HTTP status code
             content: Response content
@@ -72,10 +66,10 @@ class UnexpectedStatus(TemplafyError):
 
 def get_error_from_response(response: httpx.Response) -> TemplafyError:
     """Get appropriate error from HTTP response.
-    
+
     Args:
         response: HTTP response
-        
+
     Returns:
         Appropriate error instance
     """

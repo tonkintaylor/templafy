@@ -1,9 +1,8 @@
 """Images API endpoints for the Templafy API."""
 
-
-from ..client import AuthenticatedClient, Client
-from ..errors import get_error_from_response
-from ..models.image import Image
+from templafy.client import AuthenticatedClient, Client
+from templafy.errors import get_error_from_response
+from templafy.models.image import Image
 
 
 def get_images(
@@ -11,13 +10,13 @@ def get_images(
     client: Client | AuthenticatedClient,
 ) -> list[Image]:
     """List images.
-    
+
     Args:
         client: The API client to use
-        
+
     Returns:
         List of images
-        
+
     Raises:
         TemplafyError: If the API request fails
     """
@@ -27,7 +26,7 @@ def get_images(
     if isinstance(client, AuthenticatedClient):
         headers = client.get_headers()
 
-    response = client._client.get(url, headers=headers)
+    response = client._client.get(url, headers=headers)  # noqa: SLF001
 
     if response.status_code == 200:
         data = response.json()

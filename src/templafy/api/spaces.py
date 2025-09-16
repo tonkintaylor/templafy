@@ -2,9 +2,9 @@
 
 import httpx
 
-from ..client import AuthenticatedClient, Client
-from ..errors import get_error_from_response
-from ..models.space import Space
+from templafy.client import AuthenticatedClient, Client
+from templafy.errors import get_error_from_response
+from templafy.models.space import Space
 
 
 def get_spaces(
@@ -12,13 +12,13 @@ def get_spaces(
     client: Client | AuthenticatedClient,
 ) -> list[Space]:
     """List all existing active spaces.
-    
+
     Args:
         client: The API client to use
-        
+
     Returns:
         List of spaces
-        
+
     Raises:
         TemplafyError: If the API request fails
     """
@@ -28,7 +28,7 @@ def get_spaces(
     if isinstance(client, AuthenticatedClient):
         headers = client.get_headers()
 
-    response = client._client.get(url, headers=headers)
+    response = client._client.get(url, headers=headers)  # noqa: SLF001
 
     if response.status_code == 200:
         data = response.json()
@@ -43,13 +43,13 @@ async def get_spaces_async(
     client: Client | AuthenticatedClient,
 ) -> list[Space]:
     """List all existing active spaces (async version).
-    
+
     Args:
         client: The API client to use
-        
+
     Returns:
         List of spaces
-        
+
     Raises:
         TemplafyError: If the API request fails
     """
