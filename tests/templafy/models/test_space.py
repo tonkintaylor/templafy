@@ -22,12 +22,7 @@ def test_space_model_creation():
 
 def test_space_model_with_minimal_data():
     """Test Space model with minimal required data."""
-    space_data = {
-        "id": "space2",
-        "name": "Minimal Space",
-    }
-
-    space = Space(**space_data)
+    space = Space(id="space2", name="Minimal Space")
 
     assert space.id == "space2"
     assert space.name == "Minimal Space"
