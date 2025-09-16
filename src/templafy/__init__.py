@@ -18,7 +18,7 @@ if False:  # pragma: no cover
         RateLimitError,
         ServerError,
         TemplafyError,
-        UnexpectedStatus,
+        UnexpectedStatusError,
         ValidationError,
     )
 
@@ -28,7 +28,7 @@ else:
     # Client classes
     AuthenticatedClient: type
     Client: type
-    
+
     # Error classes
     AuthenticationError: type
     AuthorizationError: type
@@ -36,7 +36,7 @@ else:
     RateLimitError: type
     ServerError: type
     TemplafyError: type
-    UnexpectedStatus: type
+    UnexpectedStatusError: type
     ValidationError: type
 
 
@@ -60,7 +60,7 @@ def __getattr__(name: str) -> Any:
         "ValidationError",
         "RateLimitError",
         "ServerError",
-        "UnexpectedStatus",
+        "UnexpectedStatusError",
     ]:
         from .errors import (  # noqa: PLC0415
             AuthenticationError,  # noqa: F401
@@ -69,7 +69,7 @@ def __getattr__(name: str) -> Any:
             RateLimitError,  # noqa: F401
             ServerError,  # noqa: F401
             TemplafyError,  # noqa: F401
-            UnexpectedStatus,  # noqa: F401
+            UnexpectedStatusError,  # noqa: F401
             ValidationError,  # noqa: F401
         )
 
@@ -108,6 +108,7 @@ __all__ = [
     "Space",
     "Spreadsheet",
     "TemplafyError",
-    "UnexpectedStatus",
+    "UnexpectedStatusError",
     "ValidationError",
+    "api",
 ]

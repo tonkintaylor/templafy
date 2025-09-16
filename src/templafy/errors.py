@@ -42,7 +42,7 @@ class ServerError(TemplafyError):
     """Server error (5xx status codes)."""
 
 
-class UnexpectedStatus(TemplafyError):
+class UnexpectedStatusError(TemplafyError):
     """Unexpected HTTP status code."""
 
     def __init__(
@@ -76,17 +76,17 @@ def get_error_from_response(response: httpx.Response) -> TemplafyError:
     status_code = response.status_code
     content = response.content
 
-    if status_code == 401:
-        return AuthenticationError("Authentication failed", response)
-    elif status_code == 403:
-        return AuthorizationError("Authorization failed", response)
-    elif status_code == 404:
-        return NotFoundError("Resource not found", response)
-    elif status_code == 422:
-        return ValidationError("Request validation failed", response)
-    elif status_code == 429:
-        return RateLimitError("Rate limit exceeded", response)
+    error_map = {
+        401: lambda: AuthenticationError("Authentication failed", response),
+        403: lambda: AuthorizationError("Authorization failed", response),
+        404: lambda: NotFoundError("Resource not found", response),
+        422: lambda: ValidationError("Request validation failed", response),
+        429: lambda: RateLimitError("Rate limit exceeded", response),
+    }
+
+    if status_code in error_map:
+        return error_map[status_code]()
     elif status_code >= 500:
         return ServerError(f"Server error: {status_code}", response)
     else:
-        return UnexpectedStatus(status_code, content, response)
+        return UnexpectedStatusError(status_code, content, response)

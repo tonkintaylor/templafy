@@ -8,7 +8,7 @@ from templafy.models.document import Document
 
 def test_get_documents_success(mock_authenticated_client, mock_document_data):
     """Test successful documents listing returns document list."""
-    with patch.object(mock_authenticated_client._client, "get") as mock_get:
+    with patch.object(mock_authenticated_client._client, "get") as mock_get:  # noqa: SLF001
         mock_response = Mock()
         mock_response.status_code = 200
         mock_response.json.return_value = mock_document_data
@@ -21,7 +21,7 @@ def test_get_documents_success(mock_authenticated_client, mock_document_data):
 
 def test_get_document_success(mock_authenticated_client, mock_document_data):
     """Test successful single document retrieval."""
-    with patch.object(mock_authenticated_client._client, "get") as mock_get:
+    with patch.object(mock_authenticated_client._client, "get") as mock_get:  # noqa: SLF001
         mock_response = Mock()
         mock_response.status_code = 200
         mock_response.json.return_value = mock_document_data[0]

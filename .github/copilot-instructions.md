@@ -82,6 +82,10 @@
 - __all__ lists must contain only strings, no unpacking or concatenation (PLE0604, PLE0605)
 - Catch specific exceptions instead of broad Exception classes (BLE001, S110)
 - For functions with many parameters (>5), use `# noqa: PLR0913` comment when needed for convenience functions
+- For F401 unused imports in type stubs (under if False), add to __all__
+- For N818 exception names, add Error suffix
+- For PLR0911 too many return statements, use dict mapping or match to reduce returns
+- For SLF001 private member access in tests (e.g., _client), add noqa if necessary for mocking
 
 ## Testing
 
