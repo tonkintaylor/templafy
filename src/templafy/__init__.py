@@ -22,6 +22,23 @@ if False:  # pragma: no cover
         ValidationError,
     )
 
+# Additional type declarations to satisfy pyright's __all__ checking
+# These are only for type checking and will be replaced by __getattr__ at runtime
+else:
+    # Client classes
+    AuthenticatedClient: type
+    Client: type
+    
+    # Error classes
+    AuthenticationError: type
+    AuthorizationError: type
+    NotFoundError: type
+    RateLimitError: type
+    ServerError: type
+    TemplafyError: type
+    UnexpectedStatus: type
+    ValidationError: type
+
 
 # For now, defer imports that have external dependencies to avoid issues
 # during development where dependencies may not be installed
@@ -35,10 +52,6 @@ def __getattr__(name: str) -> Any:
         from .client import AuthenticatedClient  # noqa: PLC0415
 
         return AuthenticatedClient
-    elif name == "api":
-        from . import api  # noqa: PLC0415
-
-        return api
     elif name in [
         "TemplafyError",
         "AuthenticationError",
@@ -97,5 +110,4 @@ __all__ = [
     "TemplafyError",
     "UnexpectedStatus",
     "ValidationError",
-    "api",
 ]
