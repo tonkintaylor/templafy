@@ -20,7 +20,7 @@
 
 ## PeerTube API
 
-- We are wrapping the PeerTube API that adheres to the OpenAPI 3 standard.
+- We are wrapping the Templafy API that adheres to the OpenAPI 3 standard.
 - The JSON specification file can be found in `assets\openapi.json`.
 - All API endpoints information is contained there.
 - Note that the file might contain typos; do not correct them in the original JSON file, but correct them when using the text in the wrappers.
