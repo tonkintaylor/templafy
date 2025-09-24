@@ -196,6 +196,8 @@ ignore-words-list = [ "..." ]
 [tool.deptry]
 extend_exclude = [ "src/notebooks", "src/scripts", "src/archive" ]
 experimental_namespace_package = true
+
+[tool.deptry.per_rule_ignores]
 DEP002 = [ "python-dateutil" ]
 DEP003 = [ "typing_extensions" ]
 
