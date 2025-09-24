@@ -1,3 +1,4 @@
+# ruff: noqa: E722
 from http import HTTPStatus
 from typing import Any, Union, cast
 
@@ -63,7 +64,7 @@ def _parse_response(
                 response_200_type_0 = TextFieldSchema.from_dict(data)
 
                 return response_200_type_0
-            except:  # noqa: E722
+            except:
                 pass
             try:
                 if not isinstance(data, dict):
@@ -71,7 +72,7 @@ def _parse_response(
                 response_200_type_1 = NumberFieldSchema.from_dict(data)
 
                 return response_200_type_1
-            except:  # noqa: E722
+            except:
                 pass
             try:
                 if not isinstance(data, dict):
@@ -79,7 +80,7 @@ def _parse_response(
                 response_200_type_2 = ReferenceFieldSchema.from_dict(data)
 
                 return response_200_type_2
-            except:  # noqa: E722
+            except:
                 pass
             try:
                 if not isinstance(data, dict):
@@ -87,7 +88,7 @@ def _parse_response(
                 response_200_type_3 = ImageFieldSchema.from_dict(data)
 
                 return response_200_type_3
-            except:  # noqa: E722
+            except:
                 pass
             try:
                 if not isinstance(data, dict):
@@ -95,7 +96,7 @@ def _parse_response(
                 response_200_type_4 = LanguageFieldSchema.from_dict(data)
 
                 return response_200_type_4
-            except:  # noqa: E722
+            except:
                 pass
             try:
                 if not isinstance(data, dict):
@@ -103,7 +104,7 @@ def _parse_response(
                 response_200_type_5 = FontFieldSchema.from_dict(data)
 
                 return response_200_type_5
-            except:  # noqa: E722
+            except:
                 pass
             if not isinstance(data, dict):
                 raise TypeError

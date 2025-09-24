@@ -259,6 +259,10 @@ def sync_detailed(
             'History', 'type': 'text', 'isMultipleLines': True, 'defaultValue': 'The city was
             established in the year 1652 by Dutch explorers...', 'isRequired': False}.
 
+    Note:
+            body may be one of several concrete create request types depending on the field
+            schema being created.
+
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
         httpx.TimeoutException: If the request takes longer than Client.timeout.
@@ -315,6 +319,10 @@ def sync(
             'CreateReferenceFieldSchemaRequest', 'CreateTextFieldSchemaRequest']):  Example: {'name':
             'History', 'type': 'text', 'isMultipleLines': True, 'defaultValue': 'The city was
             established in the year 1652 by Dutch explorers...', 'isRequired': False}.
+
+    Note:
+            body may be one of several concrete create request types depending on the field
+            schema being created.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

@@ -13,11 +13,11 @@ from templafy.types import Response
 
 
 def _get_kwargs(
-    id: int,
+    id_: int,
 ) -> dict[str, Any]:
     _kwargs: dict[str, Any] = {
         "method": "delete",
-        "url": f"/data-sources/{id}",
+        "url": f"/data-sources/{id_}",
     }
 
     return _kwargs
@@ -66,14 +66,15 @@ def _build_response(
 
 
 def sync_detailed(
-    id: int,
+    id_: int,
     *,
     client: AuthenticatedClient,
 ) -> Response[Any | DataSourceObjectLockedProblemDetails | NotFoundProblemDetails]:
     """Deletes an existing data source.
 
     Args:
-        id (int):
+        id_ (int): The ID of the data source to delete.
+        client (AuthenticatedClient): The authenticated client instance.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -84,7 +85,7 @@ def sync_detailed(
     """
 
     kwargs = _get_kwargs(
-        id=id,
+        id_=id_,
     )
 
     response = client.get_httpx_client().request(
@@ -95,14 +96,15 @@ def sync_detailed(
 
 
 def sync(
-    id: int,
+    id_: int,
     *,
     client: AuthenticatedClient,
 ) -> Any | DataSourceObjectLockedProblemDetails | NotFoundProblemDetails | None:
     """Deletes an existing data source.
 
     Args:
-        id (int):
+        id_ (int): The ID of the data source to delete.
+        client (AuthenticatedClient): The authenticated client instance.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -113,20 +115,21 @@ def sync(
     """
 
     return sync_detailed(
-        id=id,
+        id_=id_,
         client=client,
     ).parsed
 
 
 async def asyncio_detailed(
-    id: int,
+    id_: int,
     *,
     client: AuthenticatedClient,
 ) -> Response[Any | DataSourceObjectLockedProblemDetails | NotFoundProblemDetails]:
     """Deletes an existing data source.
 
     Args:
-        id (int):
+        id_ (int): The ID of the data source to delete.
+        client (AuthenticatedClient): The authenticated client instance.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -137,7 +140,7 @@ async def asyncio_detailed(
     """
 
     kwargs = _get_kwargs(
-        id=id,
+        id_=id_,
     )
 
     response = await client.get_async_httpx_client().request(**kwargs)
@@ -146,14 +149,15 @@ async def asyncio_detailed(
 
 
 async def asyncio(
-    id: int,
+    id_: int,
     *,
     client: AuthenticatedClient,
 ) -> Any | DataSourceObjectLockedProblemDetails | NotFoundProblemDetails | None:
     """Deletes an existing data source.
 
     Args:
-        id (int):
+        id_ (int): The ID of the data source to delete.
+        client (AuthenticatedClient): The authenticated client instance.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -165,7 +169,7 @@ async def asyncio(
 
     return (
         await asyncio_detailed(
-            id=id,
+            id_=id_,
             client=client,
         )
     ).parsed

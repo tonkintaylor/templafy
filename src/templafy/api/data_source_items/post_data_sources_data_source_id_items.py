@@ -160,7 +160,8 @@ async def asyncio_detailed(
      Creates a new data source item in the specified data source.
 
     Args:
-        data_source_id (int):
+        data_source_id (int): The ID of the data source.
+        client (AuthenticatedClient): The authenticated client instance.
         body (CreateDataSourceItemRequest):  Example: {'fields': [{'dataSourceFieldId': 0, 'type':
             'text', 'value': 'Sample text'}, {'dataSourceFieldId': 1, 'type': 'number', 'value':
             123.45}, {'dataSourceFieldId': 2, 'type': 'reference', 'dataSourceItemId':
@@ -180,6 +181,7 @@ async def asyncio_detailed(
             val="7F7F7F"/></a:accent6><a:hlink><a:srgbClr
             val="0078FF"/></a:hlink><a:folHlink><a:srgbClr
             val="55CBFF"/></a:folHlink></a:clrScheme>'}]}.
+        client (AuthenticatedClient): The authenticated client instance.
         body (CreateDataSourceItemRequest):  Example: {'fields': [{'dataSourceFieldId': 0, 'type':
             'text', 'value': 'Sample text'}, {'dataSourceFieldId': 1, 'type': 'number', 'value':
             123.45}, {'dataSourceFieldId': 2, 'type': 'reference', 'dataSourceItemId':
@@ -248,7 +250,8 @@ async def asyncio(
      Creates a new data source item in the specified data source.
 
     Args:
-        data_source_id (int):
+        data_source_id (int): The ID of the data source.
+        client (AuthenticatedClient): The authenticated client instance.
         body (CreateDataSourceItemRequest):  Example: {'fields': [{'dataSourceFieldId': 0, 'type':
             'text', 'value': 'Sample text'}, {'dataSourceFieldId': 1, 'type': 'number', 'value':
             123.45}, {'dataSourceFieldId': 2, 'type': 'reference', 'dataSourceItemId':

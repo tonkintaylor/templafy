@@ -93,11 +93,10 @@ def sync_detailed(
     """Updates data source item.
 
     Args:
-        data_source_id (int):
-        item_id (int):
-        body (PatchDataSourceItemRequest):
-        body (PatchDataSourceItemRequest):
-        body (PatchDataSourceItemRequest):
+        data_source_id (int): The ID of the data source.
+        item_id (int): The ID of the data source item to update.
+        client (AuthenticatedClient): The authenticated client instance.
+        body (PatchDataSourceItemRequest): The patch request payload.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -130,11 +129,10 @@ def sync(
     """Updates data source item.
 
     Args:
-        data_source_id (int):
-        item_id (int):
-        body (PatchDataSourceItemRequest):
-        body (PatchDataSourceItemRequest):
-        body (PatchDataSourceItemRequest):
+        data_source_id (int): The ID of the data source.
+        item_id (int): The ID of the data source item to update.
+        client (AuthenticatedClient): The authenticated client instance.
+        body (PatchDataSourceItemRequest): The patch request payload.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -162,11 +160,10 @@ async def asyncio_detailed(
     """Updates data source item.
 
     Args:
-        data_source_id (int):
-        item_id (int):
-        body (PatchDataSourceItemRequest):
-        body (PatchDataSourceItemRequest):
-        body (PatchDataSourceItemRequest):
+        data_source_id (int): The ID of the data source.
+        item_id (int): The ID of the data source item to update.
+        client (AuthenticatedClient): The authenticated client instance.
+        body (PatchDataSourceItemRequest): The patch request payload.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -197,11 +194,10 @@ async def asyncio(
     """Updates data source item.
 
     Args:
-        data_source_id (int):
-        item_id (int):
-        body (PatchDataSourceItemRequest):
-        body (PatchDataSourceItemRequest):
-        body (PatchDataSourceItemRequest):
+        data_source_id (int): The ID of the data source.
+        item_id (int): The ID of the data source item to update.
+        client (AuthenticatedClient): The authenticated client instance.
+        body (PatchDataSourceItemRequest): The patch request payload.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

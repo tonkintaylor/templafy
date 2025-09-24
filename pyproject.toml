@@ -90,6 +90,7 @@ extend-exclude = [ "src/**/_version.py", "src/archive/**" ]
 
 lint.select = [ "ALL" ]
 lint.ignore = [
+  "A002", # Allow shadowing of builtin id in generated client code
   # ##############################
   # The following rules are disabled for general reasons.
   # ##############################
@@ -97,6 +98,7 @@ lint.ignore = [
   "B023",   # Prevents using df.loc[lambda _: ...]; too many false positives.
   "B024",   # This is controversial, ABC's don't always need methods.
   "C408",   # This is controversial, calls to `dict` can be more idiomatic than {}.
+  "C901",   # 
   "COM812", # Incompatible with the ruff formatter.
   "D100",   # Too excessive for our purposes (Docstring in public module).
   "D105",   # This is controversial, we don't always need docstrings for magic methods.
