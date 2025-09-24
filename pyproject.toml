@@ -33,7 +33,12 @@ classifiers = [
   "Programming Language :: Python :: 3.13",
 ]
 dynamic = [ "urls", "version" ]
-dependencies = [  ]
+dependencies = [
+  "attrs>=22.2.0",
+  "httpx>=0.23.0,<0.29.0",
+  "python-dateutil>=2.8.0",
+  "typing-extensions>=4.0.0",
+]
 
 [dependency-groups]
 dev = [
@@ -98,12 +103,14 @@ lint.ignore = [
   "D107",   # This is controversial, we don't always need docstrings for magic methods.
   "D202",   # This is controversial, it is useful to have a blank line after a docstring.
   "D203",   # This is controversial, no need to have a blank line before a docstring.
+  "D205",   # 1 blank line required between summary line and description in docstring.
   "D213",   # This conflicts with D212 and violates PEP 257.
   "D406",   # This rule is for non-Google style docstrings.
   "D407",   # This rule is for non-Google style docstrings.
   "D408",   # This rule is for non-Google style docstrings.
   "D409",   # This rule is for non-Google style docstrings.
   "D415",   # Too excessive for our purposes (Docstring ending in punctuation).
+  "E501",   # Line too long (ignored for flexibility).
   "G004",   # This is controversial, f-strings are too convenient to avoid.
   "ISC001", # Incompatible with the ruff formatter.
   # ##############################
@@ -115,6 +122,10 @@ lint.ignore = [
   "PERF203", # Too many false positives.
   "PERF401", # This can hurt readability; the performance is not always worth it.
   "PIE804",  # This is controversial, some pandas APIs work better with dict approach.
+  "PLR0911", # Too many return statements in function.
+  "PLR0912", # Too many branches in function.
+  "PLR0913", # Too many arguments in function definition.
+  "PLR0915", # Too many statements in function.
   "PLR2004", # Too strict for exploratory work
   "PLW2901", # Too many false positives.
   "PT003",   # Explicit is better than implicit
@@ -123,6 +134,7 @@ lint.ignore = [
   "RET505",  # This is controversial, returns within ``else`` are often clearer.
   "RET506",  # This is controversial, explicit branch structure is often clearer.
   "S105",    # Too many false positives.
+  "S110",    # `try`-`except`-`pass` detected without logging.
   "S311",    # Too many false positives in a data science context.
   "S324",    # Too many false positives.
   "S603",    # Too many false positives.
@@ -134,6 +146,7 @@ lint.ignore = [
   "TC003",   # Too many false positives.
   "TD",      # These rules don't align well with the way we use TODOs.
   "TD003",   # Too excessive for our purposes (TODO Links).
+  "TRY300",  # Consider moving statement to an `else` block.
   "UP015",   # This is controversial, explicit is better than implicit.
   "UP040",   # This doesn't integrate well with pydantic.
 ]
@@ -183,6 +196,8 @@ ignore-words-list = [ "..." ]
 [tool.deptry]
 extend_exclude = [ "src/notebooks", "src/scripts", "src/archive" ]
 experimental_namespace_package = true
+DEP002 = [ "python-dateutil" ]
+DEP003 = [ "typing_extensions" ]
 
 [tool.pyproject-fmt]
 keep_full_version = true

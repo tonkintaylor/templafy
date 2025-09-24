@@ -1,0 +1,26 @@
+[build-system]
+build-backend = "poetry.core.masonry.api"
+
+requires = [ "poetry-core>=2,<3" ]
+
+[tool.poetry]
+name = "templafy"
+version = "1.1.0"
+description = "A client library for accessing Templafy Public API"
+authors = [  ]
+readme = "README.md"
+packages = [
+  { include = "templafy" },
+]
+include = [ "CHANGELOG.md", "templafy/py.typed" ]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+httpx = ">=0.23.0,<0.29.0"
+attrs = ">=22.2.0"
+python-dateutil = "^2.8.0"
+
+[tool.ruff]
+line-length = 120
+
+lint.select = [ "F", "I", "UP" ]
