@@ -90,6 +90,7 @@ extend-exclude = [ "src/**/_version.py", "src/archive/**" ]
 
 lint.select = [ "ALL" ]
 lint.ignore = [
+  "A001", # Allow shadowing of builtin open in generated client code
   "A002", # Allow shadowing of builtin id in generated client code
   # ##############################
   # The following rules are disabled for general reasons.

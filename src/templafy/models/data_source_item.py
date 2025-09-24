@@ -21,6 +21,20 @@ if TYPE_CHECKING:
     )
     from templafy.models.data_source_text_item_field import DataSourceTextItemField
 
+# Top-level runtime imports to satisfy PLC0415
+from templafy.models.data_source_color_theme_item_field import (
+    DataSourceColorThemeItemField,
+)
+from templafy.models.data_source_font_item_field import DataSourceFontItemField
+from templafy.models.data_source_image_item_field import DataSourceImageItemField
+from templafy.models.data_source_language_item_field import (
+    DataSourceLanguageItemField,
+)
+from templafy.models.data_source_number_item_field import DataSourceNumberItemField
+from templafy.models.data_source_reference_item_field import (
+    DataSourceReferenceItemField,
+)
+from templafy.models.data_source_text_item_field import DataSourceTextItemField
 
 T = TypeVar("T", bound="DataSourceItem")
 
@@ -68,20 +82,7 @@ class DataSourceItem:
     ) = UNSET
 
     def to_dict(self) -> dict[str, Any]:
-        from templafy.models.data_source_font_item_field import DataSourceFontItemField
-        from templafy.models.data_source_image_item_field import (
-            DataSourceImageItemField,
-        )
-        from templafy.models.data_source_language_item_field import (
-            DataSourceLanguageItemField,
-        )
-        from templafy.models.data_source_number_item_field import (
-            DataSourceNumberItemField,
-        )
-        from templafy.models.data_source_reference_item_field import (
-            DataSourceReferenceItemField,
-        )
-        from templafy.models.data_source_text_item_field import DataSourceTextItemField
+        # Top-level imports are used to avoid inline imports (PLC0415)
 
         id = self.id
 
@@ -124,23 +125,7 @@ class DataSourceItem:
 
     @classmethod
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
-        from templafy.models.data_source_color_theme_item_field import (
-            DataSourceColorThemeItemField,
-        )
-        from templafy.models.data_source_font_item_field import DataSourceFontItemField
-        from templafy.models.data_source_image_item_field import (
-            DataSourceImageItemField,
-        )
-        from templafy.models.data_source_language_item_field import (
-            DataSourceLanguageItemField,
-        )
-        from templafy.models.data_source_number_item_field import (
-            DataSourceNumberItemField,
-        )
-        from templafy.models.data_source_reference_item_field import (
-            DataSourceReferenceItemField,
-        )
-        from templafy.models.data_source_text_item_field import DataSourceTextItemField
+        # Top-level imports are used to avoid inline imports (PLC0415)
 
         d = dict(src_dict)
         id = d.pop("id", UNSET)

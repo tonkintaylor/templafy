@@ -20,6 +20,19 @@ if TYPE_CHECKING:
         CreateTextFieldSchemaRequest,
     )
 
+# Runtime imports moved to top-level to satisfy PLC0415
+from templafy.models.create_image_field_schema_request import (
+    CreateImageFieldSchemaRequest,
+)
+from templafy.models.create_number_field_schema_request import (
+    CreateNumberFieldSchemaRequest,
+)
+from templafy.models.create_reference_field_schema_request import (
+    CreateReferenceFieldSchemaRequest,
+)
+from templafy.models.create_text_field_schema_request import (
+    CreateTextFieldSchemaRequest,
+)
 
 T = TypeVar("T", bound="CreateDataSourceRequest")
 
@@ -58,15 +71,7 @@ class CreateDataSourceRequest:
     ) = UNSET
 
     def to_dict(self) -> dict[str, Any]:
-        from templafy.models.create_image_field_schema_request import (
-            CreateImageFieldSchemaRequest,
-        )
-        from templafy.models.create_number_field_schema_request import (
-            CreateNumberFieldSchemaRequest,
-        )
-        from templafy.models.create_text_field_schema_request import (
-            CreateTextFieldSchemaRequest,
-        )
+        # Imports moved to module top-level to satisfy linter PLC0415
 
         name = self.name
 
@@ -116,18 +121,7 @@ class CreateDataSourceRequest:
 
     @classmethod
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
-        from templafy.models.create_image_field_schema_request import (
-            CreateImageFieldSchemaRequest,
-        )
-        from templafy.models.create_number_field_schema_request import (
-            CreateNumberFieldSchemaRequest,
-        )
-        from templafy.models.create_reference_field_schema_request import (
-            CreateReferenceFieldSchemaRequest,
-        )
-        from templafy.models.create_text_field_schema_request import (
-            CreateTextFieldSchemaRequest,
-        )
+        # Imports moved to module top-level to satisfy linter PLC0415
 
         d = dict(src_dict)
         name = d.pop("name")

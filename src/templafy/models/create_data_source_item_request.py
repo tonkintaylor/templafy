@@ -25,7 +25,24 @@ if TYPE_CHECKING:
     from templafy.models.create_text_data_source_item_field_request import (
         CreateTextDataSourceItemFieldRequest,
     )
-
+from templafy.models.create_color_theme_data_source_item_field_request import (
+    CreateColorThemeDataSourceItemFieldRequest,
+)
+from templafy.models.create_font_data_source_item_field_request import (
+    CreateFontDataSourceItemFieldRequest,
+)
+from templafy.models.create_image_data_source_item_field_request import (
+    CreateImageDataSourceItemFieldRequest,
+)
+from templafy.models.create_number_data_source_item_field_request import (
+    CreateNumberDataSourceItemFieldRequest,
+)
+from templafy.models.create_reference_data_source_item_field_request import (
+    CreateReferenceDataSourceItemFieldRequest,
+)
+from templafy.models.create_text_data_source_item_field_request import (
+    CreateTextDataSourceItemFieldRequest,
+)
 
 T = TypeVar("T", bound="CreateDataSourceItemRequest")
 
@@ -70,21 +87,7 @@ class CreateDataSourceItemRequest:
     ) = UNSET
 
     def to_dict(self) -> dict[str, Any]:
-        from templafy.models.create_font_data_source_item_field_request import (
-            CreateFontDataSourceItemFieldRequest,
-        )
-        from templafy.models.create_image_data_source_item_field_request import (
-            CreateImageDataSourceItemFieldRequest,
-        )
-        from templafy.models.create_number_data_source_item_field_request import (
-            CreateNumberDataSourceItemFieldRequest,
-        )
-        from templafy.models.create_reference_data_source_item_field_request import (
-            CreateReferenceDataSourceItemFieldRequest,
-        )
-        from templafy.models.create_text_data_source_item_field_request import (
-            CreateTextDataSourceItemFieldRequest,
-        )
+        # Top-level imports are used to avoid inline imports (PLC0415)
 
         fields: None | Unset | list[dict[str, Any]]
         if isinstance(self.fields, Unset):
@@ -122,24 +125,7 @@ class CreateDataSourceItemRequest:
 
     @classmethod
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
-        from templafy.models.create_color_theme_data_source_item_field_request import (
-            CreateColorThemeDataSourceItemFieldRequest,
-        )
-        from templafy.models.create_font_data_source_item_field_request import (
-            CreateFontDataSourceItemFieldRequest,
-        )
-        from templafy.models.create_image_data_source_item_field_request import (
-            CreateImageDataSourceItemFieldRequest,
-        )
-        from templafy.models.create_number_data_source_item_field_request import (
-            CreateNumberDataSourceItemFieldRequest,
-        )
-        from templafy.models.create_reference_data_source_item_field_request import (
-            CreateReferenceDataSourceItemFieldRequest,
-        )
-        from templafy.models.create_text_data_source_item_field_request import (
-            CreateTextDataSourceItemFieldRequest,
-        )
+        # Top-level imports are used to avoid inline imports (PLC0415)
 
         d = dict(src_dict)
 
