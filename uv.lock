@@ -2537,10 +2537,6 @@ wheels = [
 [[package]]
 name = "templafy"
 source = { editable = "." }
-dependencies = [
-    { name = "httpx" },
-    { name = "pydantic" },
-]
 
 [package.dev-dependencies]
 dev = [
@@ -2574,10 +2570,6 @@ test = [
 ]
 
 [package.metadata]
-requires-dist = [
-    { name = "httpx", specifier = ">=0.24.0" },
-    { name = "pydantic", specifier = ">=2.0.0" },
-]
 
 [package.metadata.requires-dev]
 dev = [
