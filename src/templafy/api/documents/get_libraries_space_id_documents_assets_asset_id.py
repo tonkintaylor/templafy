@@ -26,13 +26,15 @@ def _parse_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
 ) -> Any | NotFoundProblemDetails | list["DocumentDetails"] | None:
     if response.status_code == 200:
-        response_200 = []
         _response_200 = response.json()
-        for response_200_item_data in _response_200:
-            response_200_item = DocumentDetails.from_dict(response_200_item_data)
-
-            response_200.append(response_200_item)
-
+        if isinstance(_response_200, dict):
+            # Single object, wrap in list
+            response_200 = [DocumentDetails.from_dict(_response_200)]
+        elif isinstance(_response_200, list):
+            # List of objects
+            response_200 = [DocumentDetails.from_dict(item) for item in _response_200]
+        else:
+            response_200 = None
         return response_200
 
     if response.status_code == 401:
