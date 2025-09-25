@@ -27,6 +27,7 @@ class CreateDataSourceFieldSchemaRequest:
     is_required: Unset | bool = UNSET
 
     def to_dict(self) -> dict[str, Any]:
+        """Convert the object to a dictionary."""
         type_ = self.type_
 
         name = self.name
@@ -48,6 +49,7 @@ class CreateDataSourceFieldSchemaRequest:
 
     @classmethod
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
+        """Create an instance from a dictionary."""
         d = dict(src_dict)
         type_ = d.pop("type")
 

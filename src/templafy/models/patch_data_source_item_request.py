@@ -1,29 +1,27 @@
 from collections.abc import Mapping
-from typing import TYPE_CHECKING, Any, TypeVar, Union
+from typing import Any, TypeVar, Union
 
 from attrs import define as _attrs_define
 from typing_extensions import Self
 
-if TYPE_CHECKING:
-    from templafy.models.patch_color_theme_data_source_item_field_request import (
-        PatchColorThemeDataSourceItemFieldRequest,
-    )
-    from templafy.models.patch_font_data_source_item_field_request import (
-        PatchFontDataSourceItemFieldRequest,
-    )
-    from templafy.models.patch_image_data_source_item_field_request import (
-        PatchImageDataSourceItemFieldRequest,
-    )
-    from templafy.models.patch_number_data_source_item_field_request import (
-        PatchNumberDataSourceItemFieldRequest,
-    )
-    from templafy.models.patch_reference_data_source_item_field_request import (
-        PatchReferenceDataSourceItemFieldRequest,
-    )
-    from templafy.models.patch_text_data_source_item_field_request import (
-        PatchTextDataSourceItemFieldRequest,
-    )
-
+from templafy.models.patch_color_theme_data_source_item_field_request import (
+    PatchColorThemeDataSourceItemFieldRequest,
+)
+from templafy.models.patch_font_data_source_item_field_request import (
+    PatchFontDataSourceItemFieldRequest,
+)
+from templafy.models.patch_image_data_source_item_field_request import (
+    PatchImageDataSourceItemFieldRequest,
+)
+from templafy.models.patch_number_data_source_item_field_request import (
+    PatchNumberDataSourceItemFieldRequest,
+)
+from templafy.models.patch_reference_data_source_item_field_request import (
+    PatchReferenceDataSourceItemFieldRequest,
+)
+from templafy.models.patch_text_data_source_item_field_request import (
+    PatchTextDataSourceItemFieldRequest,
+)
 
 T = TypeVar("T", bound="PatchDataSourceItemRequest")
 
@@ -49,22 +47,7 @@ class PatchDataSourceItemRequest:
     ]
 
     def to_dict(self) -> dict[str, Any]:
-        from templafy.models.patch_font_data_source_item_field_request import (
-            PatchFontDataSourceItemFieldRequest,
-        )
-        from templafy.models.patch_image_data_source_item_field_request import (
-            PatchImageDataSourceItemFieldRequest,
-        )
-        from templafy.models.patch_number_data_source_item_field_request import (
-            PatchNumberDataSourceItemFieldRequest,
-        )
-        from templafy.models.patch_reference_data_source_item_field_request import (
-            PatchReferenceDataSourceItemFieldRequest,
-        )
-        from templafy.models.patch_text_data_source_item_field_request import (
-            PatchTextDataSourceItemFieldRequest,
-        )
-
+        """Return a dictionary representation of the model."""
         fields = []
         for fields_item_data in self.fields:
             fields_item: dict[str, Any]
@@ -96,24 +79,15 @@ class PatchDataSourceItemRequest:
 
     @classmethod
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
-        from templafy.models.patch_color_theme_data_source_item_field_request import (
-            PatchColorThemeDataSourceItemFieldRequest,
-        )
-        from templafy.models.patch_font_data_source_item_field_request import (
-            PatchFontDataSourceItemFieldRequest,
-        )
-        from templafy.models.patch_image_data_source_item_field_request import (
-            PatchImageDataSourceItemFieldRequest,
-        )
-        from templafy.models.patch_number_data_source_item_field_request import (
-            PatchNumberDataSourceItemFieldRequest,
-        )
-        from templafy.models.patch_reference_data_source_item_field_request import (
-            PatchReferenceDataSourceItemFieldRequest,
-        )
-        from templafy.models.patch_text_data_source_item_field_request import (
-            PatchTextDataSourceItemFieldRequest,
-        )
+        # model classes are imported at module level to satisfy linter PLC0415
+        """Create a PatchDataSourceItemRequest instance from a mapping/dict.
+
+        Args:
+            src_dict: Mapping representation of the model.
+
+        Returns:
+            An instantiated PatchDataSourceItemRequest.
+        """
 
         d = dict(src_dict)
         fields = []

@@ -18,6 +18,7 @@ class CreateDataSourceItemFieldRequest:
     data_source_field_id: int
 
     def to_dict(self) -> dict[str, Any]:
+        """Convert the object to a dictionary."""
         type_ = self.type_
 
         data_source_field_id = self.data_source_field_id
@@ -35,6 +36,7 @@ class CreateDataSourceItemFieldRequest:
 
     @classmethod
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
+        """Create an instance from a dictionary."""
         d = dict(src_dict)
         type_ = d.pop("type")
 

@@ -9,7 +9,7 @@ from templafy.types import UNSET, Unset
 
 if TYPE_CHECKING:
     from templafy.models.dependency import Dependency
-
+from templafy.models.dependency import Dependency
 
 T = TypeVar("T", bound="DataSourceObjectLockedProblemDetails")
 
@@ -123,8 +123,7 @@ class DataSourceObjectLockedProblemDetails:
 
     @classmethod
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
-        from templafy.models.dependency import Dependency
-
+        # Top-level imports are used to avoid inline imports (PLC0415)
         d = dict(src_dict)
         _lock_reason = d.pop("lockReason", UNSET)
         lock_reason: Unset | LockReason

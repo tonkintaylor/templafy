@@ -87,6 +87,7 @@ class CreateDataSourceItemRequest:
     ) = UNSET
 
     def to_dict(self) -> dict[str, Any]:
+        """Convert the object to a dictionary."""
         # Top-level imports are used to avoid inline imports (PLC0415)
 
         fields: None | Unset | list[dict[str, Any]]
@@ -125,6 +126,7 @@ class CreateDataSourceItemRequest:
 
     @classmethod
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
+        """Create an instance from a dictionary."""
         # Top-level imports are used to avoid inline imports (PLC0415)
 
         d = dict(src_dict)

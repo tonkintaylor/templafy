@@ -10,7 +10,9 @@ if TYPE_CHECKING:
     from templafy.models.validation_problem_details_errors_type_0 import (
         ValidationProblemDetailsErrorsType0,
     )
-
+from templafy.models.validation_problem_details_errors_type_0 import (
+    ValidationProblemDetailsErrorsType0,
+)
 
 T = TypeVar("T", bound="ValidationProblemDetails")
 
@@ -40,9 +42,7 @@ class ValidationProblemDetails:
     trace_id: None | Unset | str = UNSET
 
     def to_dict(self) -> dict[str, Any]:
-        from templafy.models.validation_problem_details_errors_type_0 import (
-            ValidationProblemDetailsErrorsType0,
-        )
+        # Top-level imports are used to avoid inline imports (PLC0415)
 
         errors: None | Unset | dict[str, Any]
         if isinstance(self.errors, Unset):
@@ -110,10 +110,7 @@ class ValidationProblemDetails:
 
     @classmethod
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
-        from templafy.models.validation_problem_details_errors_type_0 import (
-            ValidationProblemDetailsErrorsType0,
-        )
-
+        # Top-level imports are used to avoid inline imports (PLC0415)
         d = dict(src_dict)
 
         def _parse_errors(

@@ -9,7 +9,7 @@ from templafy.types import UNSET, Unset
 
 if TYPE_CHECKING:
     from templafy.models.dimensions import Dimensions
-
+from templafy.models.dimensions import Dimensions
 
 T = TypeVar("T", bound="SlideBase")
 
@@ -123,8 +123,7 @@ class SlideBase:
 
     @classmethod
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
-        from templafy.models.dimensions import Dimensions
-
+        # Top-level imports are used to avoid inline imports (PLC0415)
         d = dict(src_dict)
         asset_type = d.pop("assetType")
 

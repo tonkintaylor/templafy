@@ -102,6 +102,7 @@ lint.ignore = [
   "C901",   # 
   "COM812", # Incompatible with the ruff formatter.
   "D100",   # Too excessive for our purposes (Docstring in public module).
+  "D102",   # Missing method docstring.
   "D105",   # This is controversial, we don't always need docstrings for magic methods.
   "D107",   # This is controversial, we don't always need docstrings for magic methods.
   "D202",   # This is controversial, it is useful to have a blank line after a docstring.
@@ -113,9 +114,11 @@ lint.ignore = [
   "D408",   # This rule is for non-Google style docstrings.
   "D409",   # This rule is for non-Google style docstrings.
   "D415",   # Too excessive for our purposes (Docstring ending in punctuation).
+  "D417",   # Missing argument descriptions in docstring.
   "E501",   # Line too long (ignored for flexibility).
   "G004",   # This is controversial, f-strings are too convenient to avoid.
   "ISC001", # Incompatible with the ruff formatter.
+  "N818",   # Allow Exception names not to end in "Error"
   # ##############################
   # The following rules trade-off code quality for performance.
   # In some cases where your code is poorly-performing you might want to enable them again.

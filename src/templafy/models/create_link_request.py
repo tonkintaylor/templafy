@@ -29,6 +29,7 @@ class CreateLinkRequest:
     external_data: None | Unset | str = UNSET
 
     def to_dict(self) -> dict[str, Any]:
+        """Convert the object to a dictionary."""
         name = self.name
 
         url = self.url
@@ -73,6 +74,7 @@ class CreateLinkRequest:
 
     @classmethod
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
+        """Create an instance from a dictionary."""
         d = dict(src_dict)
         name = d.pop("name")
 

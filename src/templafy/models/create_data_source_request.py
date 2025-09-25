@@ -71,6 +71,7 @@ class CreateDataSourceRequest:
     ) = UNSET
 
     def to_dict(self) -> dict[str, Any]:
+        """Convert the object to a dictionary."""
         # Imports moved to module top-level to satisfy linter PLC0415
 
         name = self.name
@@ -121,6 +122,7 @@ class CreateDataSourceRequest:
 
     @classmethod
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
+        """Create an instance from a dictionary."""
         # Imports moved to module top-level to satisfy linter PLC0415
 
         d = dict(src_dict)

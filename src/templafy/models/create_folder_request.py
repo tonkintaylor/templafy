@@ -18,6 +18,7 @@ class CreateFolderRequest:
     name: str
 
     def to_dict(self) -> dict[str, Any]:
+        """Convert the object to a dictionary."""
         name = self.name
 
         field_dict: dict[str, Any] = {}
@@ -32,6 +33,7 @@ class CreateFolderRequest:
 
     @classmethod
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
+        """Create an instance from a dictionary."""
         d = dict(src_dict)
         name = d.pop("name")
 

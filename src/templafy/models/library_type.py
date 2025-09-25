@@ -2,6 +2,12 @@ from enum import Enum
 
 
 class LibraryType(str, Enum):
+    """Enumeration of library categories used by the API.
+
+    Each value identifies a specific type of library containing assets such
+    as documents, images, slides, or other element collections.
+    """
+
     DOCUMENTS = "documents"
     EMAIL_ELEMENTS = "email-elements"
     IMAGES = "images"

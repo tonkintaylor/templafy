@@ -66,6 +66,7 @@ class DataSource:
     description: None | Unset | str = UNSET
 
     def to_dict(self) -> dict[str, Any]:
+        """Convert the object to a dictionary."""
         # Top-level imports are used to avoid inline imports (PLC0415)
 
         id = self.id
@@ -114,13 +115,8 @@ class DataSource:
 
     @classmethod
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
-        from templafy.models.color_theme_field_schema import ColorThemeFieldSchema
-        from templafy.models.font_field_schema import FontFieldSchema
-        from templafy.models.image_field_schema import ImageFieldSchema
-        from templafy.models.language_field_schema import LanguageFieldSchema
-        from templafy.models.number_field_schema import NumberFieldSchema
-        from templafy.models.reference_field_schema import ReferenceFieldSchema
-        from templafy.models.text_field_schema import TextFieldSchema
+        """Create an instance from a dictionary."""
+        # Top-level imports are used to avoid inline imports (PLC0415)
 
         d = dict(src_dict)
         id = d.pop("id")

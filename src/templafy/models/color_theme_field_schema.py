@@ -31,6 +31,7 @@ class ColorThemeFieldSchema:
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
+        """Convert the object to a dictionary."""
         type_ = self.type_
 
         id = self.id
@@ -57,6 +58,7 @@ class ColorThemeFieldSchema:
 
     @classmethod
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
+        """Create an instance from a dictionary."""
         d = dict(src_dict)
         type_ = d.pop("type")
 
@@ -81,6 +83,7 @@ class ColorThemeFieldSchema:
 
     @property
     def additional_keys(self) -> list[str]:
+        """Return the list of additional property keys."""
         return list(self.additional_properties.keys())
 
     def __getitem__(self, key: str) -> Any:

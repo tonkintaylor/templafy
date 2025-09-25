@@ -147,6 +147,7 @@ class DataSourceItem:
                 ]
             ]
         ):
+            """Create an instance from a dictionary."""
             if data is None:
                 return data
             if isinstance(data, Unset):

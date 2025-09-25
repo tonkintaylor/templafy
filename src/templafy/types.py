@@ -8,6 +8,13 @@ from attrs import define
 
 
 class Unset:
+    """A sentinel type used to represent a missing/unset value.
+
+    Instances of this class evaluate to False and are used as a distinct
+    marker (the module-level `UNSET`) where None or other falsy values are
+    semantically different from an explicitly unset field.
+    """
+
     def __bool__(self) -> Literal[False]:
         return False
 
@@ -19,7 +26,7 @@ FileContent = IO[bytes] | bytes | str
 FileTypes = (
     # (filename, file (or bytes), content_type)
     tuple[str | None, FileContent, str | None]
-    | # (filename, file (or bytes), content_type, headers)
+    |  # (filename, file (or bytes), content_type, headers)
     tuple[str | None, FileContent, str | None, Mapping[str, str]]
 )
 RequestFiles = list[tuple[str, FileTypes]]

@@ -32,6 +32,7 @@ class ConflictProblemDetails:
     trace_id: None | Unset | str = UNSET
 
     def to_dict(self) -> dict[str, Any]:
+        """Convert the object to a dictionary."""
         type_: None | Unset | str
         if isinstance(self.type_, Unset):
             type_ = UNSET
@@ -88,6 +89,7 @@ class ConflictProblemDetails:
 
     @classmethod
     def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
+        """Create an instance from a dictionary."""
         d = dict(src_dict)
 
         def _parse_type_(data: object) -> None | Unset | str:
