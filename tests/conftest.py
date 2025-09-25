@@ -33,7 +33,7 @@ def mock_client(base_url):
 
 
 @pytest.fixture
-def mock_authenticated_client(base_url, api_token):
+def templafy_client(base_url, api_token):
     """Mock authenticated client for testing."""
     return AuthenticatedClient(base_url=base_url, token=api_token)
 
@@ -90,3 +90,24 @@ def mock_library_data():
             "is_active": True,
         },
     ]
+
+
+@pytest.fixture
+def sample_document():
+    """Sample document data for testing."""
+    return {
+        "id": "doc1",
+        "name": "Test Document 1",
+        "description": "A test document",
+        "template_type": "word",
+        "library_id": "lib1",
+        "folderId": "folder1",
+        "tags": ["test", "document"],
+        "fileSize": 1024,
+        "checksum": "abc123",
+        "fileExtension": "docx",
+        "downloadUrl": "https://example.com/download/doc1.docx",
+        "navigationPath": "/folder1/doc1.docx",
+        "modifiedAt": "2023-01-01T00:00:00Z",
+        "assetState": "ready",
+    }
