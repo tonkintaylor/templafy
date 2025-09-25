@@ -1,16 +1,51 @@
-"""Space model for the Templafy API."""
+from collections.abc import Mapping
+from typing import Any, TypeVar
 
-from pydantic import BaseModel, ConfigDict
+from attrs import define as _attrs_define
+from typing_extensions import Self
+
+T = TypeVar("T", bound="Space")
 
 
-class Space(BaseModel):
-    """A Templafy space (workspace/tenant)."""
+@_attrs_define
+class Space:
+    """Example:
+        {'id': 541244332157142140, 'name': 'Global Brand'}
 
-    id: str
+    Attributes:
+        id (int): Unique Space identifier
+        name (str): Space name
+    """
+
+    id: int
     name: str
-    description: str | None = None
-    is_active: bool = True
-    created_at: str | None = None
-    updated_at: str | None = None
 
-    model_config = ConfigDict(extra="allow")
+    def to_dict(self) -> dict[str, Any]:
+        id = self.id
+
+        name = self.name
+
+        field_dict: dict[str, Any] = {}
+
+        field_dict.update(
+            {
+                "id": id,
+                "name": name,
+            }
+        )
+
+        return field_dict
+
+    @classmethod
+    def from_dict(cls, src_dict: Mapping[str, Any]) -> Self:
+        d = dict(src_dict)
+        id = d.pop("id")
+
+        name = d.pop("name")
+
+        space = cls(
+            id=id,
+            name=name,
+        )
+
+        return space

@@ -8,5 +8,9 @@
     "python.terminal.activateEnvironment": true,
     "pythonTestExplorer.testFramework": "pytest",
     "pythonTestExplorer.testplanEnabled": false,
-    "testExplorer.useNativeTesting": true
+    "testExplorer.useNativeTesting": true,
+    "sonarlint.connectedMode.project": {
+        "connectionId": "tonkintaylor-sonarqub",
+        "projectKey": "tonkintaylor_templafy_433f7948-2868-4177-b69d-87f581ddd5ff"
+    }
 }

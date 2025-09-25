@@ -86,6 +86,7 @@
 - For N818 exception names, add Error suffix
 - For PLR0911 too many return statements, use dict mapping or match to reduce returns
 - For SLF001 private member access in tests (e.g., _client), add noqa if necessary for mocking
+- Avoid unnecessary dict comprehensions; prefer `dict(<iterable>)` or `dict(<mapping>)` when appropriate to satisfy C416
 
 ## Testing
 
